@@ -4,10 +4,10 @@ import (
 	"context"
 	"encoding/base64"
 	"os"
-	"os/user"
 	"path/filepath"
 
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
+	"github.com/FourCoreLabs/firedrill/pkg/utils/userinfo"
 	"go.uber.org/zap"
 )
 
@@ -52,7 +52,7 @@ func (e *RansomNote) Name() string {
 }
 
 func (e *RansomNote) Run(ctx context.Context, logger *zap.Logger) error {
-	desktopPath := UserDesktop()
+	desktopPath := userinfo.UserDesktop()
 	logger.Sugar().Infof("User desktop path for ransom note: %s", desktopPath)
 
 	ransomNoteFileName := e.noteFileName
@@ -73,14 +73,4 @@ func (e *RansomNote) Run(ctx context.Context, logger *zap.Logger) error {
 	logger.Sugar().Infof("Dropped ransom note at %s", ransomNotePath)
 
 	return nil
-}
-
-func UserDesktop() string {
-	curUser, err := user.Current()
-	if err != nil {
-		panic(err)
-	}
-
-	homeDir := curUser.HomeDir
-	return filepath.Join(homeDir, "Desktop")
 }
