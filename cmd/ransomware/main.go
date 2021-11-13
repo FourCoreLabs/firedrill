@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 
-	"github.com/FourCoreLabs/firedrill/pkg/behaviours/echo"
 	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_encrypt"
 	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_note"
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
@@ -14,9 +13,8 @@ func main() {
 	logger, _ := zap.NewProduction()
 
 	behaviours := []sergeant.Runnable{
-		ransom_note.NewRansomNote(),
 		ransom_encrypt.NewRansomEncrypt(),
-		echo.NewEcho(echo.EchoOptions{Message: "this is ransomware, hehe"}),
+		ransom_note.NewRansomNote(),
 	}
 
 	sergeant := sergeant.NewSergeant(logger, behaviours...)
