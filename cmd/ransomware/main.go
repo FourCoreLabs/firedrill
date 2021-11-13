@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/FourCoreLabs/firedrill/pkg/behaviours/echo"
+	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_encrypt"
 	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_note"
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
 	"go.uber.org/zap"
@@ -14,6 +15,7 @@ func main() {
 
 	behaviours := []sergeant.Runnable{
 		ransom_note.NewRansomNote(),
+		ransom_encrypt.NewRansomEncrypt(),
 		echo.NewEcho(echo.EchoOptions{Message: "this is ransomware, hehe"}),
 	}
 
