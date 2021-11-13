@@ -9,6 +9,10 @@ import (
 	"go.uber.org/zap"
 )
 
+var (
+	version string = "0.1"
+)
+
 func main() {
 	logger, _ := zap.NewProduction()
 
