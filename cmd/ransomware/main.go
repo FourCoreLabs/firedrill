@@ -5,6 +5,7 @@ import (
 
 	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_encrypt"
 	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_note"
+	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_wallpaper"
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
 	"go.uber.org/zap"
 )
@@ -19,6 +20,7 @@ func main() {
 	behaviours := []sergeant.Runnable{
 		ransom_encrypt.NewRansomEncrypt(),
 		ransom_note.NewRansomNote(),
+		ransom_wallpaper.NewRansomWallpaper(),
 	}
 
 	sergeant := sergeant.NewSergeant(logger, behaviours...)
