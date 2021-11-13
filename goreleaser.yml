@@ -1,0 +1,9 @@
+builds:
+  - binary: ransomware
+    goos:
+      - windows
+    goarch:
+      - amd64
+    main: cmd/ransomware/main.go
+archives:
+  - format: zip
