@@ -37,7 +37,7 @@ func (e *DiscoveryProcess) Name() string {
 }
 
 func (e *DiscoveryProcess) Run(ctx context.Context, logger *zap.Logger) error {
-	logger.Sugar().Infof("Fetching information of running processes")
+	logger.Sugar().Infof("T1057 Process Discovery: Fetching information of running processes")
 
 	processes, err := process.Processes()
 	if err != nil {

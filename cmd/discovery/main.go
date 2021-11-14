@@ -3,7 +3,9 @@ package main
 import (
 	"context"
 
+	discoveryperipheral "github.com/FourCoreLabs/firedrill/pkg/behaviours/discovery_peripheral"
 	discoveryprocess "github.com/FourCoreLabs/firedrill/pkg/behaviours/discovery_process"
+	discoverysoftware "github.com/FourCoreLabs/firedrill/pkg/behaviours/discovery_software"
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
 	"go.uber.org/zap"
 )
@@ -17,6 +19,8 @@ func main() {
 
 	behaviours := []sergeant.Runnable{
 		discoveryprocess.NewDiscoveryProcess(),
+		discoveryperipheral.NewDiscoveryPeripheral(),
+		discoverysoftware.NewDiscoverySoftware(),
 	}
 
 	sergeant := sergeant.NewSergeant(logger, behaviours...)
