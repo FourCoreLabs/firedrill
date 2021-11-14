@@ -1,9 +1,17 @@
 builds:
   - binary: ransomware
+    id: firedrill_ransomware
     goos:
       - windows
     goarch:
       - amd64
     main: cmd/ransomware/main.go
+  - binary: discovery
+    id: firedrill_discovery
+    goos:
+      - windows
+    goarch:
+      - amd64
+    main: cmd/discovery/main.go
 archives:
   - format: zip
