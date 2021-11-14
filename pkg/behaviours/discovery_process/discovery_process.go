@@ -2,8 +2,7 @@ package discoveryprocess
 
 import (
 	"context"
-	"fmt"
-	"strings"
+	"errors"
 
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
 	"github.com/shirou/gopsutil/v3/process"
@@ -52,14 +51,17 @@ func (e *DiscoveryProcess) Run(ctx context.Context, logger *zap.Logger) error {
 		pname, err := proc.Name() //ProcessName
 
 		if err != nil {
-			logger.Sugar().Warnf("failed to fetch process name for pid %d: %s", pid, err.Error())
+			logger.Sugar().Warnf("failed to fetch process name for pid %d/%s: %s", pid, pname, err.Error())
 			continue
 		}
 
-		username, _ := proc.Username()
-
-		if strings.Contains(fmt.Sprintf("%+v", err), "Access is denied.") {
-			username = "SYSTEM"
+		username, err := proc.Username()
+		if err != nil {
+			if errors.Is(err, errors.New("Access is denied.")) {
+				username = "SYSTEM"
+			} else {
+				logger.Sugar().Warnf("failed to fetch username for pid %d/%s: %s", pid, pname, err.Error())
+			}
 		}
 
 		logger.Sugar().Infow("Process Information", "pid", pid, "process_name", pname, "process_username", username)
