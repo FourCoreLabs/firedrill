@@ -16,7 +16,7 @@ const (
 	progID      = `Software\Classes\.FDL\Shell\Open\command`
 	msPath      = `Software\Classes\ms-settings\CurVer`
 	clearMsPath = `Software\Classes\ms-settings\`
-	clearProgID = `Software\Classes\.4CL\Shell\Open`
+	clearProgID = `Software\Classes\.FDL\Shell\Open`
 	pid         = `.FDL`
 )
 
