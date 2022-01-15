@@ -13,7 +13,7 @@ import (
 const (
 	ID          = "bypass_fodhelper"
 	Name        = "Fodhelper UAC Bypass"
-	progID      = `Software\Classes\.4CL\Shell\Open\command`
+	progID      = `Software\Classes\.FDL\Shell\Open\command`
 	msPath      = `Software\Classes\ms-settings\CurVer`
 	clearMsPath = `Software\Classes\ms-settings\`
 	clearProgID = `Software\Classes\.4CL\Shell\Open`
