@@ -15,5 +15,13 @@ builds:
       - amd64
     gobinary: "garble-literals"
     main: cmd/discovery/main.go
+  - binary: uac_bypass
+    id: firedrill_uac_bypass
+    goos:
+      - windows
+    goarch:
+      - amd64
+    gobinary: "garble-literals"
+    main: cmd/uac_bypass/main.go
 archives:
   - format: zip
