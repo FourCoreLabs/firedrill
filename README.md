@@ -45,7 +45,19 @@ $ make discovery
 $ discovery.exe
 ```
 
+UAC Bypass Simulation
+```
+$ make uac_bypass
+$ uac_bypass.exe
+```
+
+Registry Run Key Simulation
+```
+$ make registry_run
+$ registry_run.exe
+```
+
 ## Linux/bash
 ```
-$ GOOS=windows make ransomware
+$ GOOS=windows make ransomware # and so on
 ```
