@@ -4,7 +4,7 @@ Organizations invest a whole lot in their security controls and tooling for the 
 
 ![firedrill](https://i.imgur.com/flySzca.png)
 
-We have built [firedrill](https://github.com/FourCoreLabs/firedrill), a malware simulation harness to help security teams simplify and improve the security validation process. As the name suggests, it is alike a fire drill for your security infrastructure. You can build safe and reproducible malware simulations in the Go programming language and produce native executables binaries for Windows, Mac and Linux. These binaries can produce execution behaviours that can represent the activities of a malware. With the flexibility of Go, we can build a variety of simulations including Ransomware attacks, simulations of techniques in the popular MITRE ATT&CK matrix and many more. We are open sourcing firedrill under the MIT License and inviting security practitioners and Go developers to collaborate with us to identify impactful simulations for their own organizations.
+We have built [firedrill](https://github.com/FourCoreLabs/firedrill), a malware simulation harness to help security teams simplify and improve the security validation process. As the name suggests, it is alike a fire drill for your security infrastructure. You can build safe and reproducible malware simulations in the Go programming language and produce native executables binaries for Windows, Mac and Linux. These binaries can produce execution behaviours that can represent the activities of a malware. With the flexibility of Go, we can build a  variety of simulations including Ransomware attacks, simulations of techniques in the popular MITRE ATT&CK matrix and many more. We are open sourcing firedrill under the MIT License and inviting security practitioners and Go developers to collaborate with us to identify impactful simulations for their own organizations.
 
 In our first release, we are releasing a ransomware simulation and a discovery simulation. You can build it yourself, with instructions on our [repository](https://github.com/FourCoreLabs/firedrill) or you can just grab the `windows/amd64` binary releases for both simulation from GitHub releases. Both of the provided simulations are designed to be safe, to produce a reproducible runtime execution beahviour of a malware. It does not perform any destructive actions on the system.
 
@@ -17,6 +17,8 @@ This includes, in this order:
 - Dropping a ransom note on the desktop.
 - Changing the system wallapaper through registry keys (and restoring it after some time).
 
+Sandbox Analysis: [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/21b95de03a83883b67fe14d9d517782f73276649378fbb4fca632c89410c2ba9/61dff7ee07ae9c2e3f3842e4)
+
 ## Discovery Simulation
 
 The ransomware simulation consists of simulation of a malware executing three techniques from the Discovery tactic in MITRE ATT&CK, performing reconnaisance of system information which is used for further exploiting the system:
@@ -26,6 +28,8 @@ This includes, in this order:
 - Discovering the peripherals present on the system.
 - Discovering the softwares installed on the system with their respective versions.
 Malware simulation harness. Build native binaries for Windows, Linux and Mac simulating malicious behaviours. Test the effectiveness of your endpoint security controls against malware.
+
+Sandbox Analysis: [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/c8fcd8419bf11385bdddc9cfd8017226493365ff97d2232f9283fbe6309830bc/61dff860d9a3de1d1f04a1fb)
 
 ## Usage
 
