@@ -17,7 +17,11 @@ This includes, in this order:
 - Dropping a ransom note on the desktop.
 - Changing the system wallapaper through registry keys (and restoring it after some time).
 
-Sandbox Analysis: [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/21b95de03a83883b67fe14d9d517782f73276649378fbb4fca632c89410c2ba9/61dff7ee07ae9c2e3f3842e4)
+Sandbox Analysis
+
+| Sandbox |
+| ------- |
+| [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/21b95de03a83883b67fe14d9d517782f73276649378fbb4fca632c89410c2ba9/61dff7ee07ae9c2e3f3842e4) |
 
 ## Discovery Simulation
 
@@ -27,7 +31,12 @@ This includes, in this order:
 - Discovering the running processes on the system.
 - Discovering the peripherals present on the system.
 - Discovering the softwares installed on the system with their respective versions.
-Sandbox Analysis: [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/c8fcd8419bf11385bdddc9cfd8017226493365ff97d2232f9283fbe6309830bc/61dff860d9a3de1d1f04a1fb)
+
+Sandbox Analysis 
+
+| Sandbox |
+| ------- |
+| [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/c8fcd8419bf11385bdddc9cfd8017226493365ff97d2232f9283fbe6309830bc/61dff860d9a3de1d1f04a1fb) |
 
 ## UAC Bypass Simulation
 
@@ -36,6 +45,13 @@ The UAC Bypass simulation consists of malware using the fodhelper.exe utility av
 This includes, in this order:
 - Create a new registry structure in `HKCU:\Software\Classes\ms-settings\` and start `notepad.exe` with admin privileges bypassing UAC.
 
+Sandbox Analysis
+
+| Sandbox |
+| ------- |
+| [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/98ee778d81174276c74ef2039163b48479b9b1d798770ea434d8d54cb35390b0) |
+
+
 ## Registry Run Key Persistence Simulation
 
 This is a simulation of a persistence techniques which use registry Run keys to achieve persistence for arbitrary payloads. These keys include: `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`, `EY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce`, `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices`, `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce`.
@@ -43,6 +59,10 @@ This is a simulation of a persistence techniques which use registry Run keys to 
 This includes, in this order:
 - Add a value in the registry key at `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` to execute a sample payload embedded in the binary.
 - Delete the value from `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` to bring back it to it's original state for a safe simulation.
+
+| Sandbox |
+| ------- |
+| [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/353aa45090090f298af8b1d7135b33ea03c7b5b431c31367e9468366aff227b2) |
 
 ## Usage
 
@@ -71,7 +91,7 @@ $ uac_bypass.exe
 Registry Run Key Simulation
 ```
 $ make registry_run
-$ registry_run.exe
+$ runkeyregistry.exe
 ```
 
 ## Linux/bash

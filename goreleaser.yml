@@ -7,8 +7,8 @@ builds:
       - amd64
     gobinary: "garble-literals"
     main: cmd/ransomware/main.go
-  - binary: registrypersistence
-    id: registryrunkey
+  - binary: registryrunkey
+    id: firedrill_registryrunkey
     goos:
       - windows
     goarch:
