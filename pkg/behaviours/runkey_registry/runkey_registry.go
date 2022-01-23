@@ -67,7 +67,7 @@ func (e *RegistryRunKey) Run(ctx context.Context, logger *zap.Logger) error {
 	sugared.Info("Performing Registry Run Key Persistence")
 
 	// Setting up the registry format to create the bypass
-	command := fmt.Sprintf(`REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "ATTACK" /t REG_SZ /F /D "%s"`, e.Path)
+	command := fmt.Sprintf(`REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "FIREDRILL" /t REG_SZ /F /D "%s"`, e.Path)
 
 	sugared.Infof("Command to be executed: %s", command)
 
@@ -80,7 +80,7 @@ func (e *RegistryRunKey) Run(ctx context.Context, logger *zap.Logger) error {
 
 	sugared.Info("Resetting registry settings to remove Run Key")
 
-	command = `REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "ATTACK" /f`
+	command = `REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "FIREDRILL" /f`
 	sugared.Infof("Command to be executed: %s", command)
 
 	_, err = exec.Command("C:\\Windows\\System32\\cmd.exe", "/C", command).Output()
