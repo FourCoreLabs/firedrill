@@ -5,6 +5,8 @@ builds:
       - windows
     goarch:
       - amd64
+    ldflags:
+      - ""
     gobinary: "garble-literals"
     main: cmd/ransomware/main.go
   - binary: registryrunkey
@@ -13,6 +15,8 @@ builds:
       - windows
     goarch:
       - amd64
+    ldflags:
+      - ""
     gobinary: "garble-literals"
     main: cmd/runkeyregistry/main.go
   - binary: discovery
@@ -21,6 +25,8 @@ builds:
       - windows
     goarch:
       - amd64
+    ldflags:
+      - ""
     gobinary: "garble-literals"
     main: cmd/discovery/main.go
   - binary: uac_bypass
@@ -29,6 +35,8 @@ builds:
       - windows
     goarch:
       - amd64
+    ldflags:
+      - ""
     gobinary: "garble-literals"
     main: cmd/uac_bypass/main.go
 archives:
