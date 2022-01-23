@@ -1,4 +1,4 @@
-# FireDrill 🧯: A malware simulation harness
+# 🧯firedrill: A malware simulation harness
 
 Organizations invest a whole lot in their security controls and tooling for the security teams to be efficient. They might put in 10s of man-hours tuning a single security control to their needs building out detection rules, identifying best practice configuration and setting up automation. However, the task shouldn't end right here, it is crucial to test the effectiveness of these security systems against attackers. Usually, this is done with pentesting and red teaming activities done either in-house or by external teams. This results in immense value for the organization as its build confidence in security controls against in the event of a real attack.
 
