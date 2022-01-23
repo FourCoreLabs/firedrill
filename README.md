@@ -22,7 +22,7 @@ Sandbox Analysis
 | Sandbox |
 | ------- |
 | [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/21b95de03a83883b67fe14d9d517782f73276649378fbb4fca632c89410c2ba9/61dff7ee07ae9c2e3f3842e4) |
-| [Intezer Analyze](https://analyze.intezer.com/analyses/cc3cd1fe-e346-4672-92ab-f91765cc0d86) |
+| [Intezer Analyze](https://analyze.intezer.com/analyses/50b1305b-16f1-4f12-8df7-97cdaf468cec) |
 
 ## Discovery Simulation
 
@@ -38,7 +38,7 @@ Sandbox Analysis
 | Sandbox |
 | ------- |
 | [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/c8fcd8419bf11385bdddc9cfd8017226493365ff97d2232f9283fbe6309830bc/61dff860d9a3de1d1f04a1fb) |
-| [Intezer Analyze](https://analyze.intezer.com/analyses/b83fddb9-a3c8-4f60-99a0-f9364acddd72) |
+| [Intezer Analyze](https://analyze.intezer.com/analyses/0e7f5d02-1f69-43a5-b6b3-65c3cffcd21d) |
 
 ## UAC Bypass Simulation
 
@@ -52,7 +52,7 @@ Sandbox Analysis
 | Sandbox |
 | ------- |
 | [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/98ee778d81174276c74ef2039163b48479b9b1d798770ea434d8d54cb35390b0) |
-| [Intezer Analyze](https://analyze.intezer.com/analyses/f8859513-c7b5-416a-85ee-59b44ed6d160) |
+| [Intezer Analyze](https://analyze.intezer.com/analyses/5a60925a-7195-4b4c-8f23-5db9dfbbea5a) |
 
 
 ## Registry Run Key Persistence Simulation
@@ -66,7 +66,7 @@ This includes, in this order:
 | Sandbox |
 | ------- |
 | [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/353aa45090090f298af8b1d7135b33ea03c7b5b431c31367e9468366aff227b2) |
-| [Intezer Analyze](https://analyze.intezer.com/analyses/cf85df57-0066-4ae1-bd1d-88b0f6f433d8) |
+| [Intezer Analyze](https://analyze.intezer.com/analyses/9623c141-4927-43a3-acb9-38c65b6c9a5e) |
 
 ## Usage
 
