@@ -8,7 +8,7 @@ Organizations invest a whole lot in their security controls and tooling for the 
 
 ![firedrill](https://i.imgur.com/flySzca.png)
 
-Read more about firedrill on our [**blog**](https://www.fourcore.vision/blogs/firedrill-open-source-attack-simulation).
+Read more about firedrill on our [**blog**](https://fourcore.io/blogs/firedrill-open-source-attack-simulation).
 
 ## Ransomware Simulation
 
