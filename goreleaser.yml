@@ -1,6 +1,6 @@
 builds:
-  - binary: ransomware
-    id: firedrill_ransomware
+  - binary: sysransomware
+    id: firedrill_sysransomware
     goos:
       - windows
     goarch:
@@ -9,6 +9,16 @@ builds:
       - ""
     gobinary: "garble-literals"
     main: cmd/ransomware/main.go
+  - binary: mockransomware
+    id: firedrill_mockransomware
+    goos:
+      - windows
+    goarch:
+      - amd64
+    ldflags:
+      - ""
+    gobinary: "garble-literals"
+    main: cmd/mockransomware/main.go
   - binary: registryrunkey
     id: firedrill_registryrunkey
     goos:
