@@ -1,5 +1,8 @@
 all: ransomware discovery uac_bypass
 
+mockransomware:
+	go build github.com/FourCoreLabs/firedrill/cmd/mockransomware
+
 ransomware:
 	go build github.com/FourCoreLabs/firedrill/cmd/ransomware
 
