@@ -5,6 +5,7 @@ import (
 	_ "embed"
 	"fmt"
 	"runtime"
+	"time"
 
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
 	"github.com/FourCoreLabs/firedrill/pkg/utils/winwallpaper"
@@ -60,11 +61,20 @@ func (e *RansomWallpaper) Run(ctx context.Context, logger *zap.Logger) error {
 
 	switch runtime.GOOS {
 	case "windows":
-		wallpaperErr := winwallpaper.ChangeSystemWallpaper(ransomWallpaperBuf)
+		wallpaperErr := winwallpaper.ChangeSystemWallpaperwithConfig(ransomWallpaperBuf, e.currentWallpaperPath)
 		if wallpaperErr != nil {
 			logger.Sugar().Warnf(fmt.Sprintf("error during wallpaper change: %v", wallpaperErr))
 		}
-		logger.Sugar().Infof("Changed system wallpaper")
+		logger.Sugar().Infof("Changed system wallpaper, original wallpaper path backed up in registry")
+
+		logger.Sugar().Infof("Sleeping for 07 seconds")
+		time.Sleep(07 * time.Second)
+
+		wallpaperErr = winwallpaper.RestoreWallPaperfromConfig()
+		if wallpaperErr != nil {
+			logger.Sugar().Warnf(fmt.Sprintf("error during wallpaper restore: %v", wallpaperErr))
+		}
+		logger.Sugar().Infof("Restored existing wallpaper")
 	default:
 	}
 	return nil

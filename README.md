@@ -12,10 +12,11 @@ Read more about firedrill on our [**blog**](https://fourcore.io/blogs/firedrill-
 
 ## Ransomware Simulation
 
-The ransomware simulation consists of typical behaviour of a ransomware.
+The ransomware simulations consists of typical behaviour of a ransomware.
 
+### Mock Ransomware
 This includes, in this order:
-- Encryption of files on the filesystem (only test files dropped by the binary and ).
+- Encryption of files on the filesystem (only test files dropped by the binary ).
 - Dropping a ransom note on the desktop.
 - Changing the system wallapaper through registry keys (and restoring it after some time).
 
@@ -25,6 +26,20 @@ Sandbox Analysis
 | ------- |
 | [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/21b95de03a83883b67fe14d9d517782f73276649378fbb4fca632c89410c2ba9/61dff7ee07ae9c2e3f3842e4) |
 | [Intezer Analyze](https://analyze.intezer.com/analyses/50b1305b-16f1-4f12-8df7-97cdaf468cec) |
+
+
+### System Ransomware
+This includes, in this order:
+- Encryption of user files on the filesystem (selects 10 files each from the User Desktop and Downloads folder).
+- Dropping a ransom note on the desktop.
+- Changing the system wallapaper through registry keys (and restoring it after some time).
+
+Sandbox Analysis
+
+| Sandbox |
+| ------- |
+| [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/f2e7fc17a7d9d1f07b34b623cf77eaaa399171fc8bf1b7f24f3002d7782964d5) |
+| [Virus Total](https://www.virustotal.com/gui/file/f2e7fc17a7d9d1f07b34b623cf77eaaa399171fc8bf1b7f24f3002d7782964d5?nocache=1) |
 
 ## Discovery Simulation
 
@@ -76,7 +91,13 @@ This includes, in this order:
 
 ## Windows
 
-Ransomware Simulation
+Mock Ransomware Simulation
+```
+$ make mockransomware
+$ mockransomware.exe
+```
+
+System Ransomware Simulation
 ```
 $ make ransomware
 $ ransomware.exe
@@ -102,5 +123,5 @@ $ runkeyregistry.exe
 
 ## Linux/bash
 ```
-$ GOOS=windows make ransomware # and so on
+$ GOOS=linux make ransomware # and so on
 ```

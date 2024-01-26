@@ -1,11 +1,11 @@
 package main
 
 /*
-Ransomware firedrill
+Mock Ransomware firedrill
 
 Simulation of a ransomware
 	- Changes wallpapers through windows registry.
 	- Drops ransom note on desktop.
-	- Picks random files from user's desktop and downloads folder and encrypts them in a new target folder left on the user's desktop.
+	- Encrypts files present on filesystem (drops sample files in a temp folder and does not destroy actual files).
 	- Restores wallpaper after simulation
 */

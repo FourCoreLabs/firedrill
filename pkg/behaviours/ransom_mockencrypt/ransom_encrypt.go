@@ -1,27 +1,23 @@
-package ransom_encrypt
+package ransom_mockencrypt
 
 import (
 	"context"
-	"crypto/aes"
-	"crypto/cipher"
-	"crypto/rand"
 	"embed"
 	"errors"
-	"fmt"
-	"io"
 	"os"
 	"path"
 	"path/filepath"
 	"time"
 
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
+	"github.com/FourCoreLabs/firedrill/pkg/utils/aesutils"
 	"github.com/FourCoreLabs/firedrill/pkg/utils/userinfo"
 	"go.uber.org/zap"
 )
 
 const (
-	ID   = "ransom_encrypt"
-	Name = "Ransomware Encryption"
+	ID   = "ransom_mockencrypt"
+	Name = "Ransomware Mock Encryption"
 
 	ext            = ".drill"
 	ransomDirName  = "fireDrillRansomware"
@@ -29,6 +25,7 @@ const (
 )
 
 // files are test file to be dropped on the file system and encrypted as part of ransomware encryption simulation.
+//
 //go:embed testfiles
 var files embed.FS
 
@@ -61,7 +58,7 @@ func (e *RansomEncrypt) Name() string {
 
 func (e *RansomEncrypt) Run(ctx context.Context, logger *zap.Logger) error {
 	desktopPath := userinfo.UserDesktop()
-	logger.Sugar().Infof("User desktop path for ransomare encryption: %s", desktopPath)
+	logger.Sugar().Infof("User desktop path for ransomware encryption: %s", desktopPath)
 
 	testFiles, _ := files.ReadDir(embedFilesPath)
 
@@ -93,7 +90,7 @@ func (e *RansomEncrypt) Run(ctx context.Context, logger *zap.Logger) error {
 	}
 	logger.Sugar().Infof("Generated test folder for ransomware encryption: %s", targetDirPath)
 
-	aesKey := aesEncryptionKey()
+	aesKey := aesutils.AESEncryptionKey()
 
 	files, err := os.ReadDir(targetDirPath)
 	if err != nil {
@@ -112,7 +109,7 @@ func (e *RansomEncrypt) Run(ctx context.Context, logger *zap.Logger) error {
 			return err // everything should work.
 		}
 
-		encData, err := aesEncryptData(fileData, aesKey)
+		encData, err := aesutils.AESEncryptData(fileData, aesKey)
 		if err != nil {
 			return err // everything should work.
 		}
@@ -131,44 +128,13 @@ func (e *RansomEncrypt) Run(ctx context.Context, logger *zap.Logger) error {
 		logger.Sugar().Infof("Encrypted %d/%d files.", i+1, totalFiles)
 	}
 
-	logger.Sugar().Info("Waiting for 10 seconds.")
+	logger.Sugar().Info("Waiting for 03 seconds.")
 
 	select {
-	case <-time.After(10 * time.Second):
+	case <-time.After(3 * time.Second):
 	case <-ctx.Done():
 		return errors.New("context cancelled")
 	}
 
 	return nil
-}
-
-// aesEncryptData encrypts data using 256-bit AES-GCM. Output: nonce+cipherdata+tag
-func aesEncryptData(data []byte, key []byte) (encryptedtext []byte, err error) {
-	cipherblock, err := aes.NewCipher(key)
-	if err != nil {
-		return nil, err
-	}
-
-	gcmpack, err := cipher.NewGCM(cipherblock)
-	if err != nil {
-		return nil, err
-	}
-
-	nonce := make([]byte, gcmpack.NonceSize())
-	_, err = io.ReadFull(rand.Reader, nonce)
-	if err != nil {
-		return nil, err
-	}
-
-	return gcmpack.Seal(nonce, nonce, data, nil), nil
-}
-
-// aesEncryptionKey returns random AES Encrpytion Key
-func aesEncryptionKey() []byte {
-	ekey := make([]byte, 32)
-	_, err := io.ReadFull(rand.Reader, ekey)
-	if err != nil {
-		panic(fmt.Sprintf("Failed to seed key: %v", err))
-	}
-	return ekey
 }

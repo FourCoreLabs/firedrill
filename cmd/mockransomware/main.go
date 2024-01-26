@@ -3,7 +3,9 @@ package main
 import (
 	"context"
 
-	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransomware_generic"
+	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_mockencrypt"
+	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_note"
+	"github.com/FourCoreLabs/firedrill/pkg/behaviours/ransom_wallpaper"
 	"github.com/FourCoreLabs/firedrill/pkg/sergeant"
 	"go.uber.org/zap"
 )
@@ -16,9 +18,9 @@ func main() {
 	logger, _ := zap.NewProduction()
 
 	behaviours := []sergeant.Runnable{
-		ransomware_generic.NewRansomEncrypt(),
-		ransomware_generic.NewRansomNote(),
-		ransomware_generic.NewRansomWallpaper(),
+		ransom_mockencrypt.NewRansomEncrypt(),
+		ransom_note.NewRansomNote(),
+		ransom_wallpaper.NewRansomWallpaper(),
 	}
 
 	sergeant := sergeant.NewSergeant(logger, behaviours...)
